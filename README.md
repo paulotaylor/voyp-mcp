@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/paulotaylor-voyp-mcp-badge.png)](https://mseep.ai/app/paulotaylor-voyp-mcp)
+
 # Voyp Model Context Protocol server
 
 [![smithery badge](https://smithery.ai/badge/@paulotaylor/voyp-mcp)](https://smithery.ai/server/@paulotaylor/voyp-mcp)
