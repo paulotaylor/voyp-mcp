@@ -32,7 +32,21 @@ Before you use Voyp, you need:
     - RedHat/CentOS: `sudo yum install git`
   - On Windows: Download [Git for Windows](https://git-scm.com/download/win)
 
-## Voyp MCP server installation for [Goose](https://github.com/block/goose) ⚡
+## Remote Voyp MCP server (Http Streamable)
+
+You can connect directly to the stream-enabled endpoint here:
+
+ht<span>tps://</span>api.voyp.app/mcp/stream
+
+Voyp supports the OAuth2 authentication flow 
+
+You must add the Authorization header to your requests with your Voyp API Key or OAuth2 access tooken:
+
+```
+Authorization: Bearer sk_xyz
+```
+
+## Voyp MCP server installation for [Goose](https://github.com/block/goose) ⚡ (Stdio)
 
 To install the voyp-mcp server you will need to add the extension manually.
 
@@ -43,7 +57,7 @@ Voyp + Goose Demo:
 [![Voyp + Goose Demo](./assets/voyp-goose.gif)](https://www.youtube.com/watch?v=mZaLncjvYOc)
 
 
-## Voyp MCP server installation for Claude Desktop ⚡
+## Voyp MCP server installation for Claude Desktop ⚡ (Stdio)
 
 To install the voyp-mcp server, you can use the following methods:
 1. Installing via Smithery
