@@ -21,7 +21,7 @@ Before you use Voyp, you need:
 
 - [Voyp API key](https://voyp.app/app.html)
   - You will also need to buy credits to spend while making calls. You can also buy credits [here](https://voyp.app/app.html)
-- [Claude Desktop](https://claude.ai/download), [Goose](https://github.com/block/goose) or other compatible clients
+- [Claude Desktop](https://claude.ai/download), [Dive](https://github.com/OpenAgentPlatform/Dive) [Goose](https://github.com/block/goose) or other compatible clients
 - [Node.js](https://nodejs.org/) (v20 or higher)
   - You can verify your Node.js installation by running:
     - `node --version`
