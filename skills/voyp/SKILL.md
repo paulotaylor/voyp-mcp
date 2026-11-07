@@ -2,7 +2,7 @@
 name: voyp
 description: Make real outbound phone calls on the user's behalf with the Voyp MCP server — book restaurant tables, schedule appointments, ask businesses questions, check opening hours or availability, follow up on orders. Use when the user asks you to call, phone, ring or contact a business or person by phone, or wants something done that needs a phone call, and Voyp MCP tools (start_call, get_call, get_live_call, hangup_call, search_places, search_place, search_place_by_number, get_user) are available.
 license: MIT
-compatibility: Requires the Voyp MCP server, hosted (https://api.voyp.app/mcp/stream, OAuth) or local stdio (npx voyp-mcp with VOYP_API_KEY), and a Voyp account with call credits.
+compatibility: Requires the Voyp MCP server, hosted (https://api.voyp.app/mcp/stream, OAuth or API key) or local stdio (npx voyp-mcp with VOYP_API_KEY), and a Voyp account with call credits.
 metadata:
   author: Control Space BV
   homepage: https://voyp.app
@@ -117,7 +117,7 @@ another try. That new try needs approval again, as in step 4.
 
 | Symptom | What to do |
 |---|---|
-| `401` / "Invalid or expired access token" | Ask the user to sign in to Voyp again (hosted) or check `VOYP_API_KEY` (local) |
+| `401` / "Invalid or expired access token" / "Invalid API key" | Ask the user to sign in to Voyp again (OAuth), or to check their API key (hosted header or local `VOYP_API_KEY`) |
 | "Missing required OAuth scope" | Ask the user to reconnect and grant the calls and profile permissions |
 | "Unable to start call" | Check the E.164 number, then the user's credits; tell the user |
 | "Call not found" right after starting | Wait a few seconds, then try again |

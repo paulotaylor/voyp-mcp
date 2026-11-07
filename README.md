@@ -64,12 +64,32 @@ You can connect directly to the stream-enabled endpoint here:
 
 ht<span>tps://</span>api.voyp.app/mcp/stream
 
-Voyp supports the OAuth2 authentication flow 
+It accepts two kinds of credentials in the `Authorization` header:
 
-You must add the Authorization header to your requests with your Voyp API Key or OAuth2 access tooken:
+- **OAuth 2.1** (recommended for apps such as Claude, ChatGPT or Claude Code): connect without a
+  token and the client signs you in to Voyp in the browser. The server publishes its OAuth
+  metadata at `https://api.voyp.app/.well-known/oauth-protected-resource`.
+- **Voyp API key**: for clients that let you set headers (Goose, Cursor, scripts, agent SDKs).
+  Get your key at [voyp.app](https://voyp.app/app.html):
 
 ```
 Authorization: Bearer sk_xyz
+```
+
+An API key gives full access to your Voyp account, so keep it secret.
+
+Example client config with an API key:
+
+```json
+{
+  "mcpServers": {
+    "voyp": {
+      "type": "http",
+      "url": "https://api.voyp.app/mcp/stream",
+      "headers": { "Authorization": "Bearer sk_xyz" }
+    }
+  }
+}
 ```
 
 ## Voyp MCP server installation for [Goose](https://github.com/block/goose) ⚡ (Stdio)

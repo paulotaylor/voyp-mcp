@@ -35,8 +35,9 @@ no sensitive data such as card numbers or passwords, and no redialling without a
 
 1. A **Voyp account** with call credits: https://voyp.app/app.html
 2. The **Voyp MCP server** connected to your agent, in one of two ways:
-   - **Hosted** (recommended): `https://api.voyp.app/mcp/stream`, Streamable HTTP. You sign
-     in with your Voyp account through OAuth the first time you connect. No API key is needed.
+   - **Hosted** (recommended): `https://api.voyp.app/mcp/stream`, Streamable HTTP. Sign in
+     with your Voyp account through OAuth the first time you connect, or send your Voyp API key
+     as `Authorization: Bearer sk_...`.
    - **Local (stdio)**: `npx -y voyp-mcp` with `VOYP_API_KEY` set. This one adds the
      place search tools (`search_places`, `search_place`, `search_place_by_number`).
 3. An agent that supports skills. For agents that do not, see
@@ -86,6 +87,10 @@ Add the MCP server if you have not yet:
 # hosted (OAuth), then run /mcp in Claude Code to sign in
 claude mcp add --transport http voyp https://api.voyp.app/mcp/stream
 
+# or hosted with an API key (no browser sign-in)
+claude mcp add --transport http voyp https://api.voyp.app/mcp/stream \
+  --header "Authorization: Bearer your-voyp-api-key"
+
 # or local (API key)
 claude mcp add voyp --env VOYP_API_KEY=your-voyp-api-key -- npx -y voyp-mcp
 ```
@@ -108,8 +113,8 @@ and order a large margherita for pickup"*.
 ### Claude API (Messages API)
 
 Upload the folder as a custom skill with the Skills API, and give the model the Voyp server
-through the MCP connector (`mcp_servers` with `url: https://api.voyp.app/mcp/stream` and a
-Voyp OAuth access token). See Anthropic's documentation on *Agent Skills* and the
+through the MCP connector (`mcp_servers` with `url: https://api.voyp.app/mcp/stream` and your
+Voyp API key, or a Voyp OAuth access token, as `authorization_token`). See Anthropic's documentation on *Agent Skills* and the
 *MCP connector* for the request format.
 
 ### Other agents with Agent Skills support
@@ -126,8 +131,9 @@ Or copy `skills/voyp` into your agent's skills folder by hand. Check your agent'
 documentation for the path; common ones are `~/.agents/skills/`, `~/.codex/skills/`, and
 `.github/skills/`.
 
-Then add the Voyp MCP server in that agent's MCP settings, using the hosted URL or the
-local `npx -y voyp-mcp` command (see the [main README](../README.md)).
+Then add the Voyp MCP server in that agent's MCP settings: the hosted URL (with OAuth, or
+an `Authorization: Bearer sk_...` header), or the local `npx -y voyp-mcp` command. See the
+[main README](../README.md).
 
 ### Agents without skill support
 
@@ -165,8 +171,8 @@ In Claude Code you can also run it directly: `/voyp book a table for 2 at …`.
 | Problem | Fix |
 |---|---|
 | The skill is not used | Check that it is installed (`/skills` in Claude Code, or the Skills settings page) and that the Voyp tools are connected (`/mcp`). Say "phone call" or "call" in your request |
-| `401` / invalid or expired token (hosted) | Sign in again: in Claude Code run `/mcp` → voyp → re-authenticate; in the Claude apps reconnect the connector |
-| `401` (local) | Check `VOYP_API_KEY`: no quotes or spaces, and the key is active at https://voyp.app/app.html |
+| `401` / invalid or expired token (hosted, OAuth) | Sign in again: in Claude Code run `/mcp` → voyp → re-authenticate; in the Claude apps reconnect the connector |
+| `401` "Invalid API key" (hosted with a key, or local) | Check the key: it starts with `sk_`, has no quotes or extra spaces, and is the current key at https://voyp.app/app.html. The header must be `Authorization: Bearer sk_...` |
 | "Missing required OAuth scope" | Reconnect and approve all the Voyp permissions (calls and profile) |
 | "Unable to start call" | Make sure the number is in E.164 format and that you have credits |
 | No place search tools | They are only on the local stdio server. Use it, or give the number yourself |

@@ -5,7 +5,7 @@ Voyp has two MCP servers. Both have the core call tools; only the local one has 
 | | Hosted (remote) | Local (stdio) |
 |---|---|---|
 | Endpoint | `https://api.voyp.app/mcp/stream` (Streamable HTTP) | `npx -y voyp-mcp` |
-| Auth | OAuth 2.1 with PKCE (the client signs in through the browser) | `VOYP_API_KEY` environment variable |
+| Auth | OAuth 2.1 with PKCE (the client signs in through the browser), or a Voyp API key as `Authorization: Bearer sk_...` | `VOYP_API_KEY` environment variable |
 | Tools | `start_call`, `get_live_call`, `get_call`, `hangup_call`, `get_user` | `start_call`, `get_call`, `hangup_call`, `search_places`, `search_place`, `search_place_by_number`, `get_user` |
 
 All tools return JSON as text. The hosted server also returns `structuredContent`.
@@ -136,6 +136,8 @@ user's name and preferred language.
 - Local: `{ "user": { ... } }` with the full profile
 
 ## OAuth scopes (hosted)
+
+An API key has all three scopes. With OAuth, the user chooses what to grant.
 
 | Scope | Tools |
 |---|---|
