@@ -1,0 +1,20 @@
+{
+  "name": "voyp",
+  "owner": {
+    "name": "Control Space BV",
+    "url": "https://voyp.app"
+  },
+  "metadata": {
+    "description": "Voyp plugins for Claude Code"
+  },
+  "plugins": [
+    {
+      "name": "voyp",
+      "source": "./",
+      "description": "Make real phone calls from your AI agent with Voyp. Includes the Voyp skill and the hosted Voyp MCP server.",
+      "version": "1.0.0",
+      "category": "productivity",
+      "homepage": "https://voyp.app"
+    }
+  ]
+}
