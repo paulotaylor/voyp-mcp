@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "voyp": {
+      "type": "http",
+      "url": "https://api.voyp.app/mcp/stream"
+    }
+  }
+}

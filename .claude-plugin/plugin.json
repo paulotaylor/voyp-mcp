@@ -1,0 +1,21 @@
+{
+  "name": "voyp",
+  "version": "1.0.0",
+  "description": "Let your AI agent make real phone calls with Voyp: book tables, schedule appointments and ask businesses questions. Bundles the Voyp skill and the hosted Voyp MCP server.",
+  "author": {
+    "name": "Control Space BV",
+    "url": "https://voyp.app"
+  },
+  "homepage": "https://voyp.app",
+  "repository": "https://github.com/paulotaylor/voyp-mcp",
+  "license": "MIT",
+  "keywords": [
+    "voyp",
+    "phone",
+    "calls",
+    "voice",
+    "mcp",
+    "skill"
+  ],
+  "privacyPolicyUrl": "https://voyp.app/privacy.html"
+}

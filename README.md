@@ -15,6 +15,32 @@ The Voyp MCP server allows you to:
 
 <a href="https://glama.ai/mcp/servers/nlah6xt0ml"><img width="380" height="200" src="https://glama.ai/mcp/servers/nlah6xt0ml/badge" alt="Voyp Server MCP server" /></a>
 
+## Voyp skill for AI agents 🧠
+
+This repository includes a **Voyp skill** ([`skills/voyp`](./skills/voyp/SKILL.md)) in the
+[Agent Skills](https://agentskills.io) format. The MCP server gives an agent the tools to make calls.
+The skill teaches it how to use them well: find and check the number, write a full call
+briefing, **ask the user before every call**, follow the call live, and report the result.
+It works in Claude Code, the Claude apps, the Claude API, and other agents that support skills.
+
+Quick install for **Claude Code** (installs the skill and the hosted Voyp MCP server):
+
+```text
+/plugin install voyp --marketplace paulotaylor/voyp-mcp
+```
+
+On older Claude Code versions, run `/plugin marketplace add paulotaylor/voyp-mcp`, then `/plugin install voyp@voyp`.
+Afterwards run `/mcp` and sign in to Voyp.
+
+For other agents:
+
+```bash
+npx skills add paulotaylor/voyp-mcp
+```
+
+See **[docs/SKILL.md](./docs/SKILL.md)** for every install method (Claude Code, claude.ai and
+Claude Desktop, Claude API, Codex, Cursor and other agents), usage, and troubleshooting.
+
 ## Prerequisites 🔧
 
 Before you use Voyp, you need:
